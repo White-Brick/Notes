@@ -58,7 +58,7 @@ By default your repository has one branch named **main** which is considered to 
 
 - 查看提交日志
     `git log`
-    
+
 ## git差异比较
 - git diff：  
     当工作区有改动，临时区为空，diff的对比是“工作区与最后一次commit提交的仓库的共同文件”；  
@@ -75,5 +75,38 @@ By default your repository has one branch named **main** which is considered to 
 
 - git diff <分支名1> <分支名2> ：  
     比较两个分支上最后 commit 的内容的差别
-## 配合github使用远程仓库
 
+
+## 配合github使用远程仓库
+- 终端命令创建ssh key  
+    ssh-keygen -t rsa -C "xx@qq.com"
+    ```
+    Generating public/private rsa key pair.
+    Enter file in which to save the key (/Users/geewinter/.ssh/id_rsa):
+    Enter passphrase (empty for no passphrase):
+    Enter same passphrase again:
+    Your identification has been saved in /Users/geewinter/.ssh/id_rsa.
+    Your public key has been saved in /Users/geewinter/.ssh/id_rsa.pub.
+    
+    The key fingerprint is:
+    SHA256:nR6dkYbdfZFBiL/nRrbkXpY++lM+teTYpvzMDfXKiT8 815672122@qq.com
+    The key's randomart image is:
+    +---[RSA 3072]----+
+    |            . o+o|
+    |           + + o.|
+    |          . * . o|
+    |         . + +  .|
+    |        S + o . .|
+    |         . . . B=|
+    |          .   &oO|
+    |            .+E^+|
+    |            .=&O=|
+    +----[SHA256]-----+
+    ```
+- github中setting设置`New SSH Key`
+- 链接验证  
+    `ssh -T git@github.com`
+
+## 将本地已有项目push到github中
+- git remote add origin git@github.com:White-Brick/hello-world.git  
+- git push -u origin master
