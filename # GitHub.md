@@ -48,6 +48,7 @@ By default your repository has one branch named **main** which is considered to 
 - 提交文件  
     `git add readme.md`  
     `git commit -w 'create readme.md'`
+    PS：add与commit区别，add把要提交的所有修改放到暂存区（Stage），commit一次性把暂存区的所有修改提交到分支
 
 - 查看仓库状态
     `git status`
@@ -57,7 +58,22 @@ By default your repository has one branch named **main** which is considered to 
 
 - 查看提交日志
     `git log`
+    
+## git差异比较
+- git diff：  
+    当工作区有改动，临时区为空，diff的对比是“工作区与最后一次commit提交的仓库的共同文件”；  
+    当工作区有改动，临时区不为空，diff对比的是“工作区与暂存区的共同文件”
 
+- git diff --cached或git diff --staged：  
+    显示暂存区(已add但未commit文件)和最后一次commit(HEAD)之间的所有不相同文件的增删改(git diff --cached和git diff –staged相同作用)
 
+- git diff HEAD：  
+    显示工作目录(已track但未add文件)和暂存区(已add但未commit文件)与最后一次commit之间的的所有不相同文件的增删改。
+
+- git diff HEAD^^^…(后面有X个^符号，X为正整数)：  
+    可以查看最近一次提交的版本与往过去时间线前数X个的版本之间的所有同上`git diff HEAD`中定义文件之间的增删改。
+
+- git diff <分支名1> <分支名2> ：  
+    比较两个分支上最后 commit 的内容的差别
 ## 配合github使用远程仓库
 
