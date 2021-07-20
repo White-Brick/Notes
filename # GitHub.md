@@ -104,9 +104,18 @@ By default your repository has one branch named **main** which is considered to 
     +----[SHA256]-----+
     ```
 - github中setting设置`New SSH Key`
+
 - 链接验证  
     `ssh -T git@github.com`
 
+- 查看绑定的仓库列表  
+    `git remote -v`
+
+- 删除远程仓库  
+    `git remote remove origin`
+
+- 添加新的远程仓库  
+    
 ## 将本地已有项目push到github中
 - git remote add origin git@github.com:White-Brick/hello-world.git  
 - git push -u origin master
