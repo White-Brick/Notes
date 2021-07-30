@@ -1,5 +1,5 @@
 # go函数
-## 声明
+## 1、声明
 ```go
 func functionname(parametername type) returntype {  
     // 函数体（具体实现的功能）
@@ -20,7 +20,7 @@ func calculateBill(price, no int) int {
     return totalPrice
 }
 ```
-## 多返回值
+## 2、多返回值
 ```go
 // 如果一个函数有多个返回值，那么这些返回值必须用 ( 和 ) 括起来
 func rectProps(length, width float64)(float64, float64) {
@@ -29,7 +29,7 @@ func rectProps(length, width float64)(float64, float64) {
     return area, perimeter
 }
 ```
-## 命名返回值
+## 3、命名返回值
 从函数中可以返回一个命名值。一旦命名了返回值，可以认为这些值在函数第一行就被声明为变量了
 ```go
 func rectProps(length, width float64)(area, perimeter float64) {
@@ -40,7 +40,7 @@ func rectProps(length, width float64)(area, perimeter float64) {
     return
 }
 ```
-## 空白符
+## 4、空白符
 _ 在 Go 中被用作空白符，可以用作表示任何类型的任何值  
 
 我们继续以 rectProps 函数为例，该函数计算的是面积和周长。假使我们只需要计算面积，而并不关心周长的计算结果，该怎么调用这个函数呢？这时，空白符 _ 就上场了
@@ -51,6 +51,15 @@ func main() {
 }
 ```
 
+# 方法
+Go中也有方法，它是一种特殊的函数，定义于struct之上(与struct关联、绑定)，被称为struct的receiver。
+```go
+type mytype struct {}
+
+func (recv mytype) my_method(para) return_type {}
+func (recv *mytype) my_method(para) return_type {}
+```
+这表示`my_method()`函数是绑定在mytype这个struct type上的，是与之关联的，是独属于mytype的。所以，此函数称为"方法"。所以，方法和字段一样，也是struct类型的一种属性。
 # TCP
 假设一个客户端和服务器存在一个 TCP 连接，客户端开始执行关闭连接的操作，客户端先给服务器发送了一个 FIN 包以表示数据发送完毕，这会导致客户端的状态变成 FIN_WAIT1。  
 由于 TCP 是全双工的，此时客户端还能接收服务器发过来的数据。
