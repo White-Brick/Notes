@@ -1,33 +1,29 @@
+[toc]
 # GitHub Essentials
 - repositories
 - branches
 - commits
 - Pull Requests
 
-## Step 1. Create a Repository
-- 什么是仓库：  
-repository can be a place where you store ideas, resources, or even share and discuss things with others.
+# Git的三个区域
+- Working Tree 当前工作区
+- Index/Stage 暂存区域，git add xx
+- Repository 提交历史，即使用git commit提交后的结果
 
-- 仓库里可以存放什么：  
-Repositories can contain folders and files, images, videos, spreadsheets, and data sets – anything your project needs.
+**Repository流程**
+1）刚开始working tree、index与repository（HEAD）里面的内容都是一致  
+![阶段一](/assets/img/GitHub.md/4428238-fb3e9ca4dce0328c.webp/ "阶段一")
 
-## Step 2. Create a Branch
-- 什么是分支：  
-**Branching** is the way to work on different versions of a repository at one time.
+2） Git管理的文件夹里面内容出现改变后，working tree的内容会跟index及repository（HEAD）的不一致，Git知道是哪些文件（Tracked file）被改动过，直接将文件状态设置为modified（Unstaged files）
+![阶段二](/assets/img/GitHub.md/4428238-e92ef69bc699fad5.webp "阶段二")
 
-- main分支：  
-By default your repository has one branch named **main** which is considered to be the definitive branch. We use branches to experiment and make edits before committing them to main.  
-仓库默认有一个最终的主线main分支，利用其他分支进行调试，最终提交合并至主线main分支
+3）当执行git add之后，会将这些改变的文件内容加入index中（Staged files）
+![阶段三](/assets/img/GitHub.md/4428238-0b04f397c336d245.webp "阶段三")
 
-- 为什么使用分支：  
-在GitHub，我们的开发人员、编写人员和设计人员使用分支将bug修复和特性工作与我们的主（生产）分支分开。当更改准备就绪时，它们会将分支合并到main中。
-
-## Step 3. Make and commit changes
-
-## Step 4. Open a Pull Request
- When you open a **pull request**, you’re proposing your changes and requesting that someone review and pull in your contribution and merge them into their branch. Pull requests show diffs, or differences, of the content from both branches. The changes, additions, and subtractions are shown in green and red.
-
-
+4） 执行git commit后，将Git索引中所有改变的文件内容提交至Repository中，建立出新的commit 节点(HEAD)后， working tree 、index 與与repository(HEAD)区域的内容 又会保持一致
+![阶段四](/assets/img/GitHub.md/4428238-75a651c0a39381a0.webp "阶段三")
+ 
+ 
  # Git
  参考链接：http://www.ruanyifeng.com/blog/2015/12/git-cheat-sheet.html  
  仅作为摘录，方便记忆查询。
@@ -323,10 +319,6 @@ git配置文件为.gitconfig，可以在用户主目录下（全局配置），�
     比较两个分支上最后 commit 的内容的差别
 
 
-## git版本回退
-// Todo：
-
-
 ## 配合github使用远程仓库
 - 终端命令创建ssh key  
     ssh-keygen -t rsa -C "xx@qq.com"
@@ -370,6 +362,23 @@ git配置文件为.gitconfig，可以在用户主目录下（全局配置），�
 - git remote add origin git@github.com:White-Brick/hello-world.git  
 - git push -u origin master
 
+
+
+# 日常使用场景
+
+## 代码回退
+当我们发现某一次commit的内容是错误的，有两种处理方法：  
+1. 修改该错误内容再一次commit
+2. 使用`git reset`命令撤销这一次错误的commit
+> git-reset - Reset current HEAD to the specified state
+可以让HEAD这个指针指向其他的地方。
+
+**reset的三种模式**
+- soft
+- mixed
+- hard
+
+
 # FAQ
 ## 解决“fatal: Could not read from remote repository.”
 问题描述：  
@@ -379,4 +388,7 @@ git配置文件为.gitconfig，可以在用户主目录下（全局配置），�
 问题原因：  
 1. 客户端与服务端未生成ssh key
 2. 客户端与服务端的ssh key不匹配
+
+
+
 
