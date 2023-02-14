@@ -390,5 +390,10 @@ git配置文件为.gitconfig，可以在用户主目录下（全局配置），�
 2. 客户端与服务端的ssh key不匹配
 
 
+Todo：
+    1. https://blog.csdn.net/m0_49294021/article/details/118360346
+    soft mixed hard keep的区别
 
+    2. https://www.jianshu.com/p/c2ec5f06cf1a
+    Git Reset 三种模式
 
