@@ -397,3 +397,15 @@ Todo：
     2. https://www.jianshu.com/p/c2ec5f06cf1a
     Git Reset 三种模式
 
+
+## Git rebase
+https://learnku.com/devtools/t/37980  
+**合并提交**
+~~~
+# HEAD~2指分支的最后一次提交开始（head）
+git rebase -i HEAD~2
+# 强行推送分支
+git push origin main -f
+~~~
+
+**删除提交**
