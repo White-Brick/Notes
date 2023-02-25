@@ -18,3 +18,5 @@ iptables -D INPUT 3 # 删除INPUT的第三条已添加规则，这里3代表第�
 查看iptables防火墙状态：`service iptables status`
 开启防火墙：`service iptables stop`
 停止防火墙：`service iptables stop`
+
+# 简介
